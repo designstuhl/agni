@@ -1,0 +1,20 @@
+%ul.nav.navbar-nav
+  %li
+    = link_to root_path do
+      = image_tag "logo-small.png", width: "100"
+
+
+%ul.nav.navbar-nav.navbar-right
+  %li
+    %a
+      %i.fa.fa-users
+      Link One
+  %li
+    - if user_signed_in?
+      = link_to destroy_user_session_path, method: :delete do
+        %i.fa.fa-sign-out
+        Sign Out
+    - else
+      = link_to new_user_session_path do
+        %i.fa.fa-sign-in
+        Sign In
